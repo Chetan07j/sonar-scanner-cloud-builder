@@ -1,0 +1,19 @@
+substitutions:
+  _SCANNER_CLI_VERSION: '4.4.0.2170'
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "--build-arg"
+      - "SONARQUBE_SCANNER_CLI_VERSION=$_SCANNER_CLI_VERSION"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/sonar-scanner:latest"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/sonar-scanner:$_SCANNER_CLI_VERSION"
+      - "."
+
+images:
+  - "gcr.io/$PROJECT_ID/sonar-scanner:latest"
+  - "gcr.io/$PROJECT_ID/sonar-scanner:$_SCANNER_CLI_VERSION"
+
+tags: ["sonar-scanner-cloud-builder"]
