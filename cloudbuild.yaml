@@ -1,5 +1,5 @@
 substitutions:
-  _SCANNER_CLI_VERSION: '4.4.0.2170'
+  _SCANNER_CLI_VERSION: '4.6.0.2311'
 steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
